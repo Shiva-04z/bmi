@@ -35,6 +35,7 @@ class HomePageController extends GetxController {
   void onAddProfile() {
     viaUpdate.value = false;
     Get.bottomSheet(
+        isDismissible: false,
       AddProfileSheet(),
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
@@ -44,6 +45,7 @@ class HomePageController extends GetxController {
   void onEditProfile() {
     viaUpdate.value = true;
     Get.bottomSheet(
+        isDismissible: false,
       AddProfileSheet(),
       isScrollControlled: true,
       backgroundColor: Colors.transparent,

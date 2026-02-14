@@ -43,6 +43,7 @@ class ProfilePageController extends GetxController {
   void onReqAdd( ) {
     viaUpdate.value =false;
     Get.bottomSheet(
+      isDismissible: false,
       AddHistorySheet(),
       backgroundColor: Colors.transparent,
       isScrollControlled: true,
@@ -52,6 +53,7 @@ class ProfilePageController extends GetxController {
   void onReqEdit( ) {
     viaUpdate.value =true;
     Get.bottomSheet(
+      isDismissible: false,
       AddHistorySheet(),
       backgroundColor: Colors.transparent,
       isScrollControlled: true,

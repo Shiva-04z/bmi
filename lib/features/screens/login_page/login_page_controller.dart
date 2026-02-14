@@ -69,7 +69,7 @@ class LoginPageController extends GetxController {
   }
 
   void onForgotPassword() {
-    Get.bottomSheet(AddForgotSheet(),backgroundColor: Colors.transparent,isScrollControlled: true);
+    Get.bottomSheet(  isDismissible: false,AddForgotSheet(),backgroundColor: Colors.transparent,isScrollControlled: true);
   }
 
   Future<void> onSignInWithGoogle() async {

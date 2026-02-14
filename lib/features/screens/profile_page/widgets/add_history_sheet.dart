@@ -14,7 +14,7 @@ class AddHistorySheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height*0.9,
+      height: MediaQuery.of(context).size.height*0.95,
       padding: const EdgeInsets.all(32),
       decoration: BoxDecoration(
         color: AppColors.whiteBackgroundColor,

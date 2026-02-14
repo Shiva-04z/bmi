@@ -16,7 +16,7 @@ class AddProfileSheet extends StatelessWidget {
     HomePageController controller = Get.find<HomePageController>();
     controller.nameController.text = (controller.viaUpdate.value)? (controller.profile?.profileName ?? ""): "";
     return Container(
-      height: 380,
+      height: 450,
       padding: const EdgeInsetsGeometry.all(32),
       decoration: BoxDecoration(
         color: AppColors.whiteBackgroundColor,
