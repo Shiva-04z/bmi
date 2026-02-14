@@ -14,9 +14,9 @@ class ProfileService {
   static final FirebaseAuth _auth = FirebaseAuth.instance;
   static const String userCollection = "users";
   static const String profileCollection = "profiles";
-  static final String? uId = _auth.currentUser?.uid;
 
   static Future<void> saveProfile(String name, String gender) async {
+    String? uId = _auth.currentUser?.uid;
     if (uId == null) {
       Get.snackbar(
         "Some Error Occurred",
@@ -47,6 +47,7 @@ class ProfileService {
   }
 
   static Future<void> getProfile() async {
+    String? uId = _auth.currentUser?.uid;
     if (uId == null) return;
 
     try {
@@ -70,6 +71,7 @@ class ProfileService {
   }
 
   static Future<void> updateProfile(Profile profile) async {
+    String? uId = _auth.currentUser?.uid;
     if (uId == null) {
     } else {
       try {
@@ -88,15 +90,18 @@ class ProfileService {
   }
 
   static Future<void> deleteProfile(Profile profile) async {
-    if(uId == null) return;
-    try{
-     await _firestore.collection(userCollection).doc(uId).collection(profileCollection).doc(profile.profileId).delete();
-     await HiveStore.deleteProfile(profile.profileId);
-    }
-    catch(e)
-    {
+    String? uId = _auth.currentUser?.uid;
+    if (uId == null) return;
+    try {
+      await _firestore
+          .collection(userCollection)
+          .doc(uId)
+          .collection(profileCollection)
+          .doc(profile.profileId)
+          .delete();
+      await HiveStore.deleteProfile(profile.profileId);
+    } catch (e) {
       debugPrint(e.toString());
     }
   }
-
 }

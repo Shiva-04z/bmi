@@ -50,6 +50,8 @@ class LoginPageController extends GetxController {
   {
     isResetPressed.value = true;
     await AuthService.forgotPassword(emailController.text.trim());
+    Get.back();
+    Get.snackbar("Password Reset", "Email Sent" ,backgroundColor: Colors.amber,colorText: Colors.white);
     isResetPressed.value =false;
   }
 

@@ -29,7 +29,7 @@ class BuildGoogleSignIn extends StatelessWidget {
                   borderRadius: BorderRadius.circular(32),
                 ),
               ),
-              icon: const Icon(Iconsax.chrome, color: AppColors.buttonTextColor),
+              icon: ImageIcon(AssetImage("assets/icons/google.png"),size: 20,color: Colors.white,),
               label: Obx(
                     () =>
                 (controller.isGooglePressed.value)
