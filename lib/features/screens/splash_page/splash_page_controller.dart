@@ -24,18 +24,22 @@ class SplashPageController extends GetxController {
       await ProfileService.getProfile();
       String profileId = PreferencesStore.getPreferredProfileId() ?? "";
       if (profileId.isNotEmpty) {
-        Profile? profile = HiveStore.loadProfile(profileId);
+        Profile? profile =  HiveStore.loadProfile(profileId);
         if (profile.isNull) {
+          await Future.delayed(const Duration(seconds: 3));
           Get.offNamed(RoutesConstant.homePage);
         }
         else{
           glbv.selectedProfile = profile!;
+          await Future.delayed(const Duration(seconds: 3));
           Get.offNamed(RoutesConstant.profilePage);
         }
       } else {
+        await Future.delayed(const Duration(seconds: 3));
         Get.offNamed(RoutesConstant.homePage);
       }
     } else {
+      await Future.delayed(const Duration(seconds: 3));
       Get.offNamed(RoutesConstant.loginPage);
     }
   }
