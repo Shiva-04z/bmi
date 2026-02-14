@@ -19,18 +19,15 @@ class BuildTable extends StatelessWidget {
 
       final rows = _buildRows(controller);
 
-      return Expanded(
-
-
+      return Flexible(
         child: Table(
           border: TableBorder.all(color: Colors.grey.shade300),
           defaultVerticalAlignment: TableCellVerticalAlignment.middle,
           columnWidths: const {
-            0: FlexColumnWidth(3),
-            1: FlexColumnWidth(1.5),
-            2: FlexColumnWidth(1.5),
-            3: FlexColumnWidth(1.5),
-            4: FlexColumnWidth(3),
+            0: FlexColumnWidth(1.5),
+            1: FlexColumnWidth(1),
+            2: FlexColumnWidth(1),
+            3: FlexColumnWidth(1),
           },
           children: rows,
         ),
@@ -41,7 +38,7 @@ class BuildTable extends StatelessWidget {
   List<TableRow> _buildRows(ProfilePageController controller) {
     final List<TableRow> rows = [];
 
-    rows.add(_headerRow(cells: ['Date', 'W(KG)', 'H(M)', 'BMI','Status']));
+    rows.add(_headerRow(cells: ['Date', 'W(KG)', 'H(M)', 'BMI']));
 
     final historyMap = controller.profile.historyMap;
 
@@ -60,7 +57,6 @@ class BuildTable extends StatelessWidget {
           weight: bmi?.weight,
           height: bmi?.height,
           bmiValue: bmi?.bmi,
-          status: bmi?.status
         ),
       );
     }
@@ -95,7 +91,6 @@ class BuildTable extends StatelessWidget {
     double? weight,
     double? height,
     double? bmiValue,
-    String ? status,
   }) {
     return TableRow(
       children: [
@@ -106,18 +101,12 @@ class BuildTable extends StatelessWidget {
           } ,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0,vertical: 20),
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  SizedBox(height: 5,),
-                  Text(dateLabel,style: GoogleFonts.poppins(fontWeight: FontWeight.bold),),
-                  SizedBox(width: 5,),
-                  Icon(Icons.edit,color: Colors.blue,),
-                  SizedBox(height: 5,)
-                ],
-              ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text(dateLabel,style: GoogleFonts.poppins(fontWeight: FontWeight.bold),),
+                Icon(Icons.edit,color: Colors.blue,),
+              ],
             ),
           ),
         ),
@@ -125,7 +114,6 @@ class BuildTable extends StatelessWidget {
         _cell(weight?.toStringAsFixed(1) ?? 'N/A'),
         _cell(height?.toStringAsFixed(2) ?? 'N/A'),
         _cell(bmiValue?.toStringAsFixed(1) ?? 'N/A'),
-        _cell(status ?? 'N/A'),
       ],
     );
   }
