@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "922929210544",
+    "project_id": "b-m-icalci-a",
+    "storage_bucket": "b-m-icalci-a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:922929210544:android:19fa63c165f51a3ac00775",
+        "android_client_info": {
+          "package_name": "com.shivalik.bmi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwFFnmbDRRWSK4c-yUf9EpjLhpK7ltGZw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
